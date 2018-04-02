@@ -1,47 +1,57 @@
 @ECHO OFF
-rem ×÷Õß:IT´ïÄ¦
-rem ¹¦ÄÜ:Í³¼ÆÑ§Éú½»×÷ÒµµÄÇé¿ö
-rem ÃüÁîËµÃ÷£º
-rem listStatus %1 %2,%1,%2Á½¸ö¿ÉÑ¡²ÎÊı.ÓÃÓÚ×îÖÕµÄÎÄ¼şÃû
-rem %1´ú±í¿ÎÊ±,Èç"µÚ1¿Î",%2´ú±í°à¼¶,Èç"Áù£¨5£©°à"
-rem ´´½¨Ê±¼ä£º2018-03-30 08:20
-rem ×îºóĞŞ¸ÄÊ±¼ä:2018-04-02 08:39
-rem ÊäÈëÎÄ¼ş:¸÷°à¼¶Ñ§ÉúÃûµ¥\.txt(°à¼¶ËùÓĞÑ§ÉúµÄÃûµ¥ÁĞ±í)
-rem ÊäÈëÎÄ¼ş:¸÷°à¼¶×÷ÒµÍ³¼Æ\µÚ6¿Î-Áù£¨5£©°à-ÏêÇé.txt(Ñ§ÉúÌá½»×÷ÒµµÄ×÷Æ·ÁĞ±í)
-rem ÁÙÊ±ÎÄ¼ş:result.txt,title_row.txt,sort_result.txt
-rem Êä³öÎÄ¼ş:¸÷°à¼¶×÷ÒµÍ³¼Æ\µÚ6¿Î-Áù£¨5£©°à-Í³¼Æ.xls
+rem ä½œè€…:ITè¾¾æ‘©
+rem åŠŸèƒ½:ç»Ÿè®¡å­¦ç”Ÿäº¤ä½œä¸šçš„æƒ…å†µ
+rem å‘½ä»¤è¯´æ˜ï¼š
+rem listStatus %1 %2,%1,%2ä¸¤ä¸ªå¯é€‰å‚æ•°.ç”¨äºæœ€ç»ˆçš„æ–‡ä»¶å
+rem %1ä»£è¡¨è¯¾æ—¶,å¦‚"ç¬¬1è¯¾",%2ä»£è¡¨ç­çº§,å¦‚"å…­ï¼ˆ5ï¼‰ç­"
+rem åˆ›å»ºæ—¶é—´ï¼š2018-03-30 08:20
+rem æœ€åä¿®æ”¹æ—¶é—´:2018-04-02 08:39
+rem è¾“å…¥æ–‡ä»¶:å„ç­çº§å­¦ç”Ÿåå•\.txt(ç­çº§æ‰€æœ‰å­¦ç”Ÿçš„åå•åˆ—è¡¨)
+rem è¾“å…¥æ–‡ä»¶:å„ç­çº§ä½œä¸šç»Ÿè®¡\ç¬¬6è¯¾-å…­ï¼ˆ5ï¼‰ç­-è¯¦æƒ….txt(å­¦ç”Ÿæäº¤ä½œä¸šçš„ä½œå“åˆ—è¡¨)
+rem ä¸´æ—¶æ–‡ä»¶:result.txt,title_row.txt,sort_result.txt
+rem è¾“å‡ºæ–‡ä»¶:å„ç­çº§ä½œä¸šç»Ÿè®¡\ç¬¬6è¯¾-å…­ï¼ˆ5ï¼‰ç­-ç»Ÿè®¡.xls
+
+rem listStatus.batä¸è¾“å…¥è¾“å‡ºæ–‡ä»¶ä¹‹é—´çš„å±‚æ¬¡å…³ç³»ï¼š
+rem â”‚  list.bat
+rem â”‚  
+rem â”œâ”€å„ç­çº§ä½œä¸šç»Ÿè®¡
+rem â”‚      ç¬¬6è¯¾-å…­ï¼ˆ5ï¼‰ç­-ç»Ÿè®¡.xls
+rem â”‚      ç¬¬6è¯¾-å…­ï¼ˆ5ï¼‰ç­-è¯¦æƒ….txt
+rem â”‚      
+rem â”œâ”€å„ç­çº§å­¦ç”Ÿåå•
+rem â”‚      å…­ï¼ˆ5ï¼‰ç­å­¦ç”Ÿåå•.txt
 
 setlocal EnableDelayedExpansion
-rem ÒÑ½»Ñ§ÉúĞòºÅ
+rem å·²äº¤å­¦ç”Ÿåºå·
 set yesnum=0
-rem Î´½»Ñ§ÉúĞòºÅ
+rem æœªäº¤å­¦ç”Ÿåºå·
 set nonum=0
-rem ÎÄ¼şÃû
-set filename=%1-%2-Í³¼Æ
+rem æ–‡ä»¶å
+set filename=%1-%2-ç»Ÿè®¡
 
-for /f "tokens=* delims=" %%i in (¸÷°à¼¶Ñ§ÉúÃûµ¥\Áù£¨5£©°àÑ§ÉúÃûµ¥.txt) do (
+for /f "tokens=* delims=" %%i in (å„ç­çº§å­¦ç”Ÿåå•\å…­ï¼ˆ5ï¼‰ç­å­¦ç”Ÿåå•.txt) do (
 set a=%%i
 
-findstr !a! ¸÷°à¼¶×÷ÒµÍ³¼Æ\µÚ6¿Î-Áù£¨5£©°à-ÏêÇé.txt
+findstr !a! å„ç­çº§ä½œä¸šç»Ÿè®¡\ç¬¬6è¯¾-å…­ï¼ˆ5ï¼‰ç­-è¯¦æƒ….txt
 
-rem ·µ»ØÖµÎª1=Î´ÕÒµ½Ê±£¬¸ñÊ½»¯Êä³ö¡£
-IF  ERRORLEVEL 1 IF NOT ERRORLEVEL 2 set /a nonum+=1 & @ECHO Î´½»	!nonum!	%2	!a!>>result.txt
-rem ·µ»ØÖµÎª0=ÕÒµ½Ê±£¬¸ñÊ½»¯Êä³ö¡£
-IF  ERRORLEVEL 0 IF NOT ERRORLEVEL 1 set /a yesnum+=1 & @ECHO ÒÑ½»	!yesnum!	%2	!a!>>result.txt
+rem è¿”å›å€¼ä¸º1=æœªæ‰¾åˆ°æ—¶ï¼Œæ ¼å¼åŒ–è¾“å‡ºã€‚
+IF  ERRORLEVEL 1 IF NOT ERRORLEVEL 2 set /a nonum+=1 & @ECHO æœªäº¤	!nonum!	%2	!a!>>result.txt
+rem è¿”å›å€¼ä¸º0=æ‰¾åˆ°æ—¶ï¼Œæ ¼å¼åŒ–è¾“å‡ºã€‚
+IF  ERRORLEVEL 0 IF NOT ERRORLEVEL 1 set /a yesnum+=1 & @ECHO å·²äº¤	!yesnum!	%2	!a!>>result.txt
 )
-rem ¶ÔÉú³ÉµÄresult.txtÎÄ¼ş½øĞĞÅÅĞò
+rem å¯¹ç”Ÿæˆçš„result.txtæ–‡ä»¶è¿›è¡Œæ’åº
 sort result.txt > sort_result.txt
-rem É¾³ıÁÙÊ±ÎÄ¼ş:result.txt
+rem åˆ é™¤ä¸´æ—¶æ–‡ä»¶:result.txt
 del result.txt
-rem ÎÄ¼şÍ·²¿×÷³É
-@echo °à    ¼¶	%2> title_row.txt
-@echo ×÷³ÉÊ±¼ä	%Date:~0,4%-%Date:~5,2%-%Date:~8,2%>> title_row.txt
+rem æ–‡ä»¶å¤´éƒ¨ä½œæˆ
+@echo ç­    çº§	%2> title_row.txt
+@echo ä½œæˆæ—¶é—´	%Date:~0,4%-%Date:~5,2%-%Date:~8,2%>> title_row.txt
 @echo.>> title_row.txt
-@echo ×´Ì¬	ĞòºÅ	°à¼¶	ĞÕÃû>> title_row.txt
+@echo çŠ¶æ€	åºå·	ç­çº§	å§“å>> title_row.txt
 
-rem ºÏ²¢ÎÄ¼ş
-copy title_row.txt+sort_result.txt ¸÷°à¼¶×÷ÒµÍ³¼Æ\%filename%.xls
-rem É¾³ıÁÙÊ±ÎÄ¼ş:sort_result.txt,title_row.txt
+rem åˆå¹¶æ–‡ä»¶
+copy title_row.txt+sort_result.txt å„ç­çº§ä½œä¸šç»Ÿè®¡\%filename%.xls
+rem åˆ é™¤ä¸´æ—¶æ–‡ä»¶:sort_result.txt,title_row.txt
 del sort_result.txt title_row.txt
 
 
