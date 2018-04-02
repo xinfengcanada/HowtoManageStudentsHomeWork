@@ -26,18 +26,22 @@ rem 已交学生序号
 set yesnum=0
 rem 未交学生序号
 set nonum=0
-rem 文件名
+rem 设置文件名
 set filename=%1-%2-统计
 
-for /f "tokens=* delims=" %%i in (各班级学生名单\六（5）班学生名单.txt) do (
+for /f "tokens=* delims=" %%i in (各班级学生名单\%2学生名单.txt) do (
 set a=%%i
 
-findstr !a! 各班级作业统计\第6课-六（5）班-详情.txt
+findstr !a! 各班级作业统计\%1-%2-详情.txt
 
 rem 返回值为1=未找到时，格式化输出。
-IF  ERRORLEVEL 1 IF NOT ERRORLEVEL 2 set /a nonum+=1 & @ECHO 未交	!nonum!	%2	!a!>>result.txt
+IF  ERRORLEVEL 1 IF NOT ERRORLEVEL 2 set /a nonum+=1 & @ECHO 未交	!nonum!	%2	
+
+!a!>>result.txt
 rem 返回值为0=找到时，格式化输出。
-IF  ERRORLEVEL 0 IF NOT ERRORLEVEL 1 set /a yesnum+=1 & @ECHO 已交	!yesnum!	%2	!a!>>result.txt
+IF  ERRORLEVEL 0 IF NOT ERRORLEVEL 1 set /a yesnum+=1 & @ECHO 已交	!yesnum!	
+
+%2	!a!>>result.txt
 )
 rem 对生成的result.txt文件进行排序
 sort result.txt > sort_result.txt
@@ -53,5 +57,3 @@ rem 合并文件
 copy title_row.txt+sort_result.txt 各班级作业统计\%filename%.xls
 rem 删除临时文件:sort_result.txt,title_row.txt
 del sort_result.txt title_row.txt
-
-
