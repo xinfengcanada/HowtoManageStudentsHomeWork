@@ -33,6 +33,7 @@ for /f "tokens=* delims=" %%i in (各班级学生名单\%2学生名单.txt) do (
 set a=%%i
 
 findstr !a! ??%2\%1
+rem findstr !a! 各班级作业统计\%1-%2-详情.txt
 
 rem 返回值为1=未找到时，格式化输出。
 IF  ERRORLEVEL 1 IF NOT ERRORLEVEL 2 set /a nonum+=1 & @ECHO 未交	!nonum!	%2	
