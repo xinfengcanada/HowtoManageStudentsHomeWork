@@ -12,7 +12,7 @@ rem 临时文件:result.txt,title_row.txt,sort_result.txt
 rem 输出文件:各班级作业统计\第6课-六（5）班-统计.xls
 
 rem listStatus.bat与输入输出文件之间的层次关系：
-rem │  list.bat
+rem │ listStatus.bat
 rem │  
 rem ├─各班级作业统计
 rem │      第6课-六（5）班-统计.xls
@@ -20,7 +20,9 @@ rem │      第6课-六（5）班-详情.txt
 rem │      
 rem ├─各班级学生名单
 rem │      六（5）班学生名单.txt
-
+rem ├─1-六（5）班
+rem │      ├─第1课
+rem │            myfile1-张三.png
 setlocal EnableDelayedExpansion
 rem 已交学生序号
 set yesnum=0
