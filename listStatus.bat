@@ -32,7 +32,7 @@ set filename=%1-%2-统计
 for /f "tokens=* delims=" %%i in (各班级学生名单\%2学生名单.txt) do (
 set a=%%i
 
-findstr !a! ??%2\%1
+findstr /s /i "/<!a!/>" ??%2\%1
 rem findstr !a! 各班级作业统计\%1-%2-详情.txt
 
 rem 返回值为1=未找到时，格式化输出。
