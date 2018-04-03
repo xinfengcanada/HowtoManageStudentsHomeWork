@@ -31,7 +31,7 @@ set filename=%1-%2-统计
 
 for /f "tokens=* delims=" %%i in (各班级学生名单\%2学生名单.txt) do (
 set a=%%i
-
+rem 在该目录和所有子目录中搜索包含!a!的每个文件，而不考虑字母的大小写
 findstr /s /i "/<!a!/>" ??%2\%1
 rem findstr !a! 各班级作业统计\%1-%2-详情.txt
 
