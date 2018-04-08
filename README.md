@@ -99,20 +99,10 @@
 └── ListStatus.bat
 ```
 ### 建立课时目录
-在文件夹`99CollectionofHomeworkforCopy`下建立需要的课时文件夹如：
+在文件夹`99CollectionofHomeworkforCopy`下，手动创建需要的课时文件夹，例如：
 ```
 ./99CollectionofHomeworkforCopy/
-├── EndofTerm
 ├── Lesson1
-├── Lesson10
-├── Lesson11
-├── Lesson12
-├── Lesson13
-├── Lesson14
-├── Lesson15
-├── Lesson16
-├── Lesson17
-├── Lesson18
 ├── Lesson2
 ├── Lesson3
 ├── Lesson4
@@ -122,17 +112,21 @@
 ├── Lesson8
 ├── Lesson9
 ├── MiddleofTerm
+├── EndofTerm
 ├── Unit1Summary
 ├── Unit2Summary
-└── Unit3Summary
+├── Unit3Summary
+└── ...
 ```
-每个课时文件夹用于存放相应课时的学生作业文件。
+每个课时文件夹用于存放学生作业文件。
 
 :heavy_exclamation_mark:温馨提示
-- ListStatus.bat 运行时是依据学生姓名进行查找的，所以作业文件的文件名必须包含该学生的姓名
+- `ListStatus.bat` 运行时，是依据学生姓名进行查找的，所以作业文件的文件名必须包含该学生的姓名
 
-### 准备班级名单
-将各班级名单逐行保存到`01ListofClasses.txt`
+双击运行`Copy99.bat`,创建每个班级的存放作业的文件夹。
+
+### 班级名单作成
+将各班级名单逐行追加到`01ListofClasses.txt`文件中，并保存。
 
 ```
 1-C5G6
@@ -141,8 +135,8 @@
 ...
 ```
 上述示列中，每行为一个班级，数字代表老师个人课表上的上课次序;C5G6即指Class 5 Grade 6(六（5）班）;之间用一个短横线隔开。
-### 准备学生名单
-每个班的学生名单保存到相应班级的文件中。
+### 学生名单作成
+将每个班的学生名单逐行添加到相应班级的文件中，并保存。
 
 如文件02ListofStudents\C5G6.txt用于存放六（5）班所有学生的名字。
 
@@ -169,3 +163,4 @@ cd E: /d
 ```
 ListStatus Lesson1 C5G6
 ```
+按`Enter`确定输入，很快你会得到一个`Lesson1-C5G6.txt`文件。打开`03ListofHomework\Lesson1-C5G6.txt`文件夹看看吧。
