@@ -30,33 +30,13 @@
 文件夹名或文件名不要改动，命令及其参数也要遵守约定。
 ```
 .
-├── 01ListofClasses.txt
+├── 01ListofClasses.txt		# archive the name of class by row,sorted by number. eg.1-C5G6 standing for class 5 grade 6
 ├── 02ListofStudents
-│   └── C5G6.txt
+│   └── C5G6.txt		# archive students' name in C5G6 by row,eg.SanZhang
 ├── 03ListofHomework
-│   └── default.md
+│   └── default.md		# a removable file placeholder,the same as below
 ├── 99CollectionofHomeworkforCopy
-│   ├── EndofTerm
-│   │   └── default.md
-│   ├── Lesson1
-│   │   └── default.md
-│   ├── Lesson10
-│   │   └── default.md
-│   ├── Lesson11
-│   │   └── default.md
-│   ├── Lesson12
-│   │   └── default.md
-│   ├── Lesson13
-│   │   └── default.md
-│   ├── Lesson14
-│   │   └── default.md
-│   ├── Lesson15
-│   │   └── default.md
-│   ├── Lesson16
-│   │   └── default.md
-│   ├── Lesson17
-│   │   └── default.md
-│   ├── Lesson18
+│   ├── Lesson1			# save students'homework of Lesson 1 here,and so on
 │   │   └── default.md
 │   ├── Lesson2
 │   │   └── default.md
@@ -74,20 +54,118 @@
 │   │   └── default.md
 │   ├── Lesson9
 │   │   └── default.md
-│   ├── MiddleofTerm
+│   ├── Lesson10	
+│   │   └── default.md
+│   ├── Lesson11
+│   │   └── default.md
+│   ├── Lesson12
+│   │   └── default.md
+│   ├── Lesson13
+│   │   └── default.md
+│   ├── Lesson14
+│   │   └── default.md
+│   ├── Lesson15
+│   │   └── default.md
+│   ├── Lesson16
+│   │   └── default.md
+│   ├── Lesson17
+│   │   └── default.md
+│   ├── Lesson18
 │   │   └── default.md
 │   ├── Unit1Summary
 │   │   └── default.md
 │   ├── Unit2Summary
 │   │   └── default.md
-│   └── Unit3Summary
+│   ├── Unit3Summary
+│   │   └── default.md
+│   ├── MiddleofTerm
+│   │   └── default.md
+│   ├── EndofTerm
+│   │   └── default.md
+│   └── Temp			# save sth temporarily
 │       └── default.md
-├── Copy99.bat
-├── ListStatus.bat
-├── README.md
+├── Copy99.bat			# copy 99CollectionofHomeworkforCopy to the directory whose filename are in 01ListofClasses.txt
+├── ListStatus.bat		# create a txt file to list the status about everyone's homework in his class.
+└── README.md
 ```
-26 directories, 30 files
 ### 建立工作目录
-下面的目录结构必须存在的：
+下面的文件夹及文件是必须存在的：
+```
+├── 01ListofClasses.txt
+├── 02ListofStudents
+├── 03ListofHomework
+├── 99CollectionofHomeworkforCopy
+├── Copy99.bat
+└── ListStatus.bat
+```
+### 建立课时目录
+在文件夹`99CollectionofHomeworkforCopy`下建立需要的课时文件夹如：
+```
+./99CollectionofHomeworkforCopy/
+├── EndofTerm
+├── Lesson1
+├── Lesson10
+├── Lesson11
+├── Lesson12
+├── Lesson13
+├── Lesson14
+├── Lesson15
+├── Lesson16
+├── Lesson17
+├── Lesson18
+├── Lesson2
+├── Lesson3
+├── Lesson4
+├── Lesson5
+├── Lesson6
+├── Lesson7
+├── Lesson8
+├── Lesson9
+├── MiddleofTerm
+├── Unit1Summary
+├── Unit2Summary
+└── Unit3Summary
+```
+每个课时文件夹用于存放相应课时的学生作业文件。
+
+:heavy_exclamation_mark:温馨提示
+- ListStatus.bat 运行时是依据学生姓名进行查找的，所以作业文件的文件名必须包含该学生的姓名
+
+### 准备班级名单
+将各班级名单逐行保存到`01ListofClasses.txt`
+
+```
+1-C5G6
+2-C6G6
+3-C2G5
+...
+```
+上述示列中，每行为一个班级，数字代表老师个人课表上的上课次序;C5G6即指Class 5 Grade 6(六（5）班）;之间用一个短横线隔开。
 ### 准备学生名单
+每个班的学生名单保存到相应班级的文件中。
+
+如文件02ListofStudents\C5G6.txt用于存放六（5）班所有学生的名字。
+
+一行一个学生，对于同名学生，建议在名字前加上“大”或“小”以示区分。
+
+如同一个班有两个学生都叫“王鑫”，可以用“大王鑫”和“小王鑫”加以区分。
+
+```
+张三
+李四
+大王鑫
+小王鑫
+John
+欧阳汝阳
+...
+```
 ### 生成统计名单
+打开cmd窗口，进入`ListStatus.bat`所在的目录。
+如果`ListStatus.bat`文件在E盘，可以输入如下命令：
+```
+cd E: /d
+```
+如果你要生成六（5）班第1课学生提交作业情况的文件，可以输入如下命令：
+```
+ListStatus Lesson1 C5G6
+```
