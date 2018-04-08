@@ -163,4 +163,4 @@ cd E: /d
 ```
 ListStatus Lesson1 C5G6
 ```
-按`Enter`确定输入，很快你会得到一个`Lesson1-C5G6.txt`文件。打开`03ListofHomework\Lesson1-C5G6.txt`文件夹看看吧。
+按`Enter`确定输入，很快你会得到一个`Lesson1-C5G6.txt`文件。打开`03ListofHomework\Lesson1-C5G6.txt`文件看看吧。
