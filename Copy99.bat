@@ -10,4 +10,3 @@ for /f "tokens=* delims=" %%i in (01ListofClasses.txt) do (
 set className=%%i
 xcopy 99CollectionofHomeworkforCopy .\!className!\  /e /s
 )
-pause

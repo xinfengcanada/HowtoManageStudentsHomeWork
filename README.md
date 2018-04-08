@@ -20,9 +20,7 @@
 不用安装任何软件，不需任何特殊的编程语言——所需的就是MS-DOS
 
 每次统计学生交作业情况时，只需运行一个命令，就这么简单。
-## 快速指导
-此项目是基于Windows操作系统，简单易用，0门槛。 
-### 项目结构
+## 项目结构
 项目结构是约定好的，不要搞创新。:smile:
 
 学生名单、班级名单、学生作业统计目录等都放要在默认位置，
@@ -88,18 +86,26 @@
 ├── ListStatus.bat		# create a txt file to list the status about everyone's homework in his class.
 └── README.md
 ```
+## 快速指导
+此项目是基于Windows操作系统，简单易用，0门槛。 
 ### 建立工作目录
 下面的文件夹及文件是必须存在的：
 ```
-├── 01ListofClasses.txt
-├── 02ListofStudents
-├── 03ListofHomework
-├── 99CollectionofHomeworkforCopy
-├── Copy99.bat
-└── ListStatus.bat
+├── 01ListofClasses.txt			# 班级名单文件不能为空
+├── 02ListofStudents			# 学生名单目录
+├── 03ListofHomework			# 作业统计目录
+├── 99CollectionofHomeworkforCopy	# 课时目录模板
+├── Copy99.bat				# 复制上面的文件夹的批处理文件
+└── ListStatus.bat			# 统计每个班作业提交情况的批处理文件
 ```
+如果你直接下载本项目到本地计算机，你可以安全的删除以下文件和文件夹：
+- default.md				# 所有default.md
+- 02ListofStudents/C5G6.txt		
+- 99CollectionofHomeworkforCopy/*.*	# 目录下所有子目录和文件
+- README.md
+
 ### 建立课时目录
-在文件夹`99CollectionofHomeworkforCopy`下，手动创建需要的课时文件夹，例如：
+在文件夹`99CollectionofHomeworkforCopy`下，手动创建所需的课时文件夹，文件夹名命名，可参考如下：
 ```
 ./99CollectionofHomeworkforCopy/
 ├── Lesson1
@@ -120,13 +126,16 @@
 ```
 每个课时文件夹用于存放学生作业文件。
 
-:heavy_exclamation_mark:温馨提示
-- `ListStatus.bat` 运行时，是依据学生姓名进行查找的，所以作业文件的文件名必须包含该学生的姓名
 
 双击运行`Copy99.bat`,创建每个班级的存放作业的文件夹。
 
+:heavy_exclamation_mark:温馨提示
+- 此文件夹中的每个子文件夹名如`Lessson1`将作为文件`ListStatus.bat`的第1个参数
+- `ListStatus.bat` 运行时，是依据学生姓名进行查找的，所以作业文件的文件名必须包含该学生的姓名
+
+
 ### 班级名单作成
-将各班级名单逐行追加到`01ListofClasses.txt`文件中，并保存。
+手动将各班级名单逐行追加到`01ListofClasses.txt`文件中，并保存。每行由两部分组成：序号-班级名，两者之间用短横线隔开。班级命名形式可参考如下：
 
 ```
 1-C5G6
@@ -135,6 +144,9 @@
 ...
 ```
 上述示列中，每行为一个班级，数字代表老师个人课表上的上课次序;C5G6即指Class 5 Grade 6(六（5）班）;之间用一个短横线隔开。
+
+:heavy_exclamation_mark:温馨提示
+此文件中的班级名如`C5G6`将作为文件`ListStatus.bat`的第2个参数
 ### 学生名单作成
 将每个班的学生名单逐行添加到相应班级的文件中，并保存。
 
@@ -159,8 +171,11 @@ John
 ```
 cd E: /d
 ```
+在窗口中运行`ListStatus %1 %2`命令，参数%1即指`99CollectionofHomeworkforCopy/`下的
+子文件夹名;参数%2要与`01ListofClasses.txt`文件中每行的班级名保持一致（如C5G6）。
 如果你要生成六（5）班第1课学生提交作业情况的文件，可以输入如下命令：
 ```
 ListStatus Lesson1 C5G6
 ```
 按`Enter`确定输入，很快你会得到一个`Lesson1-C5G6.txt`文件。打开`03ListofHomework\Lesson1-C5G6.txt`文件看看吧。
+
