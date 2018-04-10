@@ -1,26 +1,15 @@
-@ECHO OFF
+﻿@ECHO OFF
 rem 作者:IT达摩
 rem 功能:统计学生交作业的情况
 rem 命令说明：
-rem listStatus %1 %2,%1,%2两个必选参数.
+rem 统计学生作业 %1 %2,%1,%2两个必选参数.
 rem %1代表课时,如"Lesson1",%2代表班级,如"C5G6"即六（5）班
 rem 创建时间：2018-03-30 08:20
 rem 最后修改时间:2018-04-02 16:55
-rem 输入文件:02ListofStudents\C5G6.txt
+rem 输入文件:03各班级学生清单\C5G6.txt
 rem 临时文件:result.txt,title_row.txt,sort_result.txt
 rem 输出文件:03ListofHomework\Lesson1-C5G6.txt
 
-rem ListStatus.bat与输入输出文件之间的层次关系：
-rem │ ListStatus.bat
-rem │  
-rem ├─03ListofHomework
-rem │     Lesson1-C5G6.txt 
-rem │      
-rem ├─02ListofStudents
-rem │      C5G6.txt
-rem ├─1-C5G6
-rem │      ├─Lesson1
-rem │            myfile1-SanZhang.png
 setlocal EnableDelayedExpansion
 rem 已交学生序号
 set yesnum=0
@@ -29,7 +18,7 @@ set nonum=0
 rem 设置文件名
 set filename=%1-%2-统计
 
-for /f "tokens=* delims=" %%i in (02ListofStudents\%2.txt) do (
+for /f "tokens=* delims=" %%i in (03各班级学生清单\%2.txt) do (
 set a=%%i
 rem 在该目录和所有子目录中搜索包含!a!的每个文件，而不考虑字母的大小写
 findstr /s /i "/<!a!/>" ??%2\%1
