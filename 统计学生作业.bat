@@ -19,14 +19,15 @@ rem 设置文件名
 set filename=%1-%2-统计
 
 for /f "eol=#" %%i in (03各班级学生清单\%2.txt) do (
-set a=%%i
-rem 在该目录和所有子目录中搜索包含!a!的每个文件，而不考虑字母的大小写
+set str=%%i
+
+rem 在该目录和所有子目录中搜索包含!str!的每个文件，而不考虑字母的大小写
 findstr /s /i "\<!a!\>" .\%2\%1
 
 rem 返回值为1=未找到时，格式化输出。
-IF  ERRORLEVEL 1 IF NOT ERRORLEVEL 2 set /a nonum+=1 & @ECHO 未交	!nonum!	%2	!a!>>result.txt
+IF  ERRORLEVEL 1 IF NOT ERRORLEVEL 2 set /a nonum+=1 & @ECHO 未交	!nonum!	%2	!str!>>result.txt
 rem 返回值为0=找到时，格式化输出。
-IF  ERRORLEVEL 0 IF NOT ERRORLEVEL 1 set /a yesnum+=1 & @ECHO 已交	!yesnum!	%2	!a!>>result.txt
+IF  ERRORLEVEL 0 IF NOT ERRORLEVEL 1 set /a yesnum+=1 & @ECHO 已交	!yesnum!	%2	!str!>>result.txt
 )
 rem 对生成的result.txt文件进行排序
 sort result.txt > sort_result.txt
