@@ -1,48 +1,44 @@
-ï»¿@ECHO OFF
-rem ä½œè€…:ITè¾¾æ‘©
-rem åŠŸèƒ½:ç»Ÿè®¡å­¦ç”Ÿäº¤ä½œä¸šçš„æƒ…å†µ
-rem å‘½ä»¤è¯´æ˜ï¼š
-rem ç»Ÿè®¡å­¦ç”Ÿä½œä¸š %1 %2,%1,%2ä¸¤ä¸ªå¿…é€‰å‚æ•°.
-rem %1ä»£è¡¨è¯¾æ—¶,å¦‚"Lesson1",%2ä»£è¡¨ç­çº§,å¦‚"C5G6"å³å…­ï¼ˆ5ï¼‰ç­
-rem åˆ›å»ºæ—¶é—´ï¼š2018-03-30 08:20
-rem æœ€åä¿®æ”¹æ—¶é—´:2018-04-02 16:55
-rem è¾“å…¥æ–‡ä»¶:03å„ç­çº§å­¦ç”Ÿæ¸…å•\C5G6.txt
-rem ä¸´æ—¶æ–‡ä»¶:result.txt,title_row.txt,sort_result.txt
-rem è¾“å‡ºæ–‡ä»¶:03ListofHomework\Lesson1-C5G6.txt
+@ECHO OFF
+rem ×÷Õß:IT´ïÄ¦
+rem ¹¦ÄÜ:Í³¼ÆÑ§Éú½»×÷ÒµµÄÇé¿ö
+rem ÃüÁîËµÃ÷£º
+rem Í³¼ÆÑ§Éú×÷Òµ %1 %2,%1,%2Á½¸ö±ØÑ¡²ÎÊı.
+rem %1´ú±í¿ÎÊ±,Èç"Lesson1",%2´ú±í°à¼¶,Èç"C5G6"¼´Áù£¨5£©°à
+rem ´´½¨Ê±¼ä£º2018-03-30 08:20
+rem ×îºóĞŞ¸ÄÊ±¼ä:2018-04-10 16:55
+rem ÊäÈëÎÄ¼ş:03¸÷°à¼¶Ñ§ÉúÇåµ¥\C5G6.txt
+rem ÁÙÊ±ÎÄ¼ş:result.txt,title_row.txt,sort_result.txt
+rem Êä³öÎÄ¼ş:04¸÷°à¼¶×÷ÒµÍ³¼Æ\Lesson1-C5G6.txt
 
 setlocal EnableDelayedExpansion
-rem å·²äº¤å­¦ç”Ÿåºå·
+rem ÒÑ½»Ñ§ÉúĞòºÅ
 set yesnum=0
-rem æœªäº¤å­¦ç”Ÿåºå·
+rem Î´½»Ñ§ÉúĞòºÅ
 set nonum=0
-rem è®¾ç½®æ–‡ä»¶å
-set filename=%1-%2-ç»Ÿè®¡
+rem ÉèÖÃÎÄ¼şÃû
+set filename=%1-%2-Í³¼Æ
 
-for /f "tokens=* delims=" %%i in (03å„ç­çº§å­¦ç”Ÿæ¸…å•\%2.txt) do (
+for /f "eol=#" %%i in (03¸÷°à¼¶Ñ§ÉúÇåµ¥\%2.txt) do (
 set a=%%i
-rem åœ¨è¯¥ç›®å½•å’Œæ‰€æœ‰å­ç›®å½•ä¸­æœç´¢åŒ…å«!a!çš„æ¯ä¸ªæ–‡ä»¶ï¼Œè€Œä¸è€ƒè™‘å­—æ¯çš„å¤§å°å†™
-findstr /s /i "/<!a!/>" ??%2\%1
+rem ÔÚ¸ÃÄ¿Â¼ºÍËùÓĞ×ÓÄ¿Â¼ÖĞËÑË÷°üº¬!a!µÄÃ¿¸öÎÄ¼ş£¬¶ø²»¿¼ÂÇ×ÖÄ¸µÄ´óĞ¡Ğ´
+findstr /s /i "\<!a!\>" .\%2\%1
 
-rem è¿”å›å€¼ä¸º1=æœªæ‰¾åˆ°æ—¶ï¼Œæ ¼å¼åŒ–è¾“å‡ºã€‚
-IF  ERRORLEVEL 1 IF NOT ERRORLEVEL 2 set /a nonum+=1 & @ECHO NO	!nonum!	%2	
-
-!a!>>result.txt
-rem è¿”å›å€¼ä¸º0=æ‰¾åˆ°æ—¶ï¼Œæ ¼å¼åŒ–è¾“å‡ºã€‚
-IF  ERRORLEVEL 0 IF NOT ERRORLEVEL 1 set /a yesnum+=1 & @ECHO YES	!yesnum!	
-
-%2	!a!>>result.txt
+rem ·µ»ØÖµÎª1=Î´ÕÒµ½Ê±£¬¸ñÊ½»¯Êä³ö¡£
+IF  ERRORLEVEL 1 IF NOT ERRORLEVEL 2 set /a nonum+=1 & @ECHO Î´½»	!nonum!	%2	!a!>>result.txt
+rem ·µ»ØÖµÎª0=ÕÒµ½Ê±£¬¸ñÊ½»¯Êä³ö¡£
+IF  ERRORLEVEL 0 IF NOT ERRORLEVEL 1 set /a yesnum+=1 & @ECHO ÒÑ½»	!yesnum!	%2	!a!>>result.txt
 )
-rem å¯¹ç”Ÿæˆçš„result.txtæ–‡ä»¶è¿›è¡Œæ’åº
+rem ¶ÔÉú³ÉµÄresult.txtÎÄ¼ş½øĞĞÅÅĞò
 sort result.txt > sort_result.txt
-rem åˆ é™¤ä¸´æ—¶æ–‡ä»¶:result.txt
+rem É¾³ıÁÙÊ±ÎÄ¼ş:result.txt
 del result.txt
-rem æ–‡ä»¶å¤´éƒ¨ä½œæˆ
-@echo ç­    çº§	%2> title_row.txt
-@echo ä½œæˆæ—¶é—´	%Date:~0,4%-%Date:~5,2%-%Date:~8,2%>> title_row.txt
+rem ÎÄ¼şÍ·²¿×÷³É
+@echo °à    ¼¶	%2> title_row.txt
+@echo ×÷³ÉÊ±¼ä	%Date:~0,4%-%Date:~5,2%-%Date:~8,2%>> title_row.txt
 @echo.>> title_row.txt
-@echo çŠ¶æ€	åºå·	ç­çº§	å§“å>> title_row.txt
+@echo ×´Ì¬	ĞòºÅ	°à¼¶	ĞÕÃû>> title_row.txt
 
-rem åˆå¹¶æ–‡ä»¶
-copy title_row.txt+sort_result.txt 03ListofHomework\%filename%.txt
-rem åˆ é™¤ä¸´æ—¶æ–‡ä»¶:sort_result.txt,title_row.txt
+rem ºÏ²¢ÎÄ¼ş
+copy title_row.txt+sort_result.txt 04¸÷°à¼¶×÷ÒµÍ³¼Æ\%filename%.txt
+rem É¾³ıÁÙÊ±ÎÄ¼ş:sort_result.txt,title_row.txt
 del sort_result.txt title_row.txt
