@@ -57,7 +57,9 @@ set className=%%i
 echo !className!
 for /f  "eol=#" %%j in (A2¿ÎÊ±Çåµ¥.txt) do (
 set lessonName=%%j
-mkdir .\!className!\!lessonName!\)
+mkdir .\!className!\!lessonName!\
+rem rd /S /Q .\!className!\!lessonName!\
+type nul> .\!className!\!lessonName!\paceholder.file)
 
 )
 pause
