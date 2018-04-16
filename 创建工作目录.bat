@@ -2,7 +2,7 @@
 rem Author:ITDAMAO
 rem Feature:CreatDir.bat 创建工作目录
 rem Created Time：2018-04-02 13:20
-rem Last Modified Time:2018-04-10 10:51
+rem Last Modified Time:2018-04-16 13:13
 
 
 setlocal EnableDelayedExpansion
@@ -11,9 +11,6 @@ echo 创建文件A1班级清单.txt
 if exist .\A1班级清单.txt (echo 当前目录下已有A1班级清单.txt存在) else (
 echo 当前目录下不存在A1班级清单.txt,即将创建
 echo # 以#开头行是注释行,脚本不会读取>>A1班级清单.txt
-echo.>>A1班级清单.txt
-echo # "99-示例班级"作为缺省项,由程序自动创建>>A1班级清单.txt
-echo 99-示例班级>>A1班级清单.txt
 echo.>>A1班级清单.txt)
 
 rem 创建文件A2课时清单.txt
@@ -21,9 +18,6 @@ echo 创建文件A2课时清单.txt
 if exist .\A2课时清单.txt (echo 当前目录下已有A2课时清单.txt存在) else (
 echo 当前目录下不存在A2课时清单.txt,即将创建
 echo # 以#开头行是注释行,脚本不会读取>>A2课时清单.txt
-echo.>>A2课时清单.txt
-echo # "示例课时"作为缺省项,由程序自动创建>>A2课时清单.txt
-echo 示例课时>>A2课时清单.txt
 echo.>>A2课时清单.txt)
 
 rem 创建文件：各班级学生清单
@@ -59,7 +53,7 @@ for /f  "eol=#" %%j in (A2课时清单.txt) do (
 set lessonName=%%j
 mkdir .\!className!\!lessonName!\
 rem rd /S /Q .\!className!\!lessonName!\
-type nul> .\!className!\!lessonName!\paceholder.file)
+rem type nul> .\!className!\!lessonName!\paceholder.file)
 
 )
 pause
