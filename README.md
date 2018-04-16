@@ -28,129 +28,57 @@
 文件夹名或文件名不要改动，命令及其参数也要遵守约定。
 ```
 .
-├── 01ListofClasses.txt		# archive the name of class by row,sorted by number. eg.1-C5G6 standing for class 5 grade 6
-├── 02ListofStudents
-│   └── C5G6.txt		# archive students' name in C5G6 by row,eg.SanZhang
-├── 03ListofHomework
-│   └── default.md		# a removable file placeholder,the same as below
-├── 99CollectionofHomeworkforCopy
-│   ├── Lesson1			# save students'homework of Lesson 1 here,and so on
-│   │   └── default.md
-│   ├── Lesson2
-│   │   └── default.md
-│   ├── Lesson3
-│   │   └── default.md
-│   ├── Lesson4
-│   │   └── default.md
-│   ├── Lesson5
-│   │   └── default.md
-│   ├── Lesson6
-│   │   └── default.md
-│   ├── Lesson7
-│   │   └── default.md
-│   ├── Lesson8
-│   │   └── default.md
-│   ├── Lesson9
-│   │   └── default.md
-│   ├── Lesson10	
-│   │   └── default.md
-│   ├── Lesson11
-│   │   └── default.md
-│   ├── Lesson12
-│   │   └── default.md
-│   ├── Lesson13
-│   │   └── default.md
-│   ├── Lesson14
-│   │   └── default.md
-│   ├── Lesson15
-│   │   └── default.md
-│   ├── Lesson16
-│   │   └── default.md
-│   ├── Lesson17
-│   │   └── default.md
-│   ├── Lesson18
-│   │   └── default.md
-│   ├── Unit1Summary
-│   │   └── default.md
-│   ├── Unit2Summary
-│   │   └── default.md
-│   ├── Unit3Summary
-│   │   └── default.md
-│   ├── MiddleofTerm
-│   │   └── default.md
-│   ├── EndofTerm
-│   │   └── default.md
-│   └── Temp			# save sth temporarily
-│       └── default.md
-├── Copy99.bat			# copy 99CollectionofHomeworkforCopy to the directory whose filename are in 01ListofClasses.txt
-├── ListStatus.bat		# create a txt file to list the status about everyone's homework in his class.
-└── README.md
+├── A1班级清单.txt			# 用于存放班级名称,如“六（5）班”
+├── A2课时清单.txt			# 用于存放课时名称，如“第1课”
+├── A3各班级学生清单			# 每个班的学生名单以班级为单位放在此文件夹中
+├── A4各班级作业统计			# 每个班以课时为单位自动生成的文件存放此中
+├── CreatDir.bat			# 运行此批处理文件，创建工作目录
+├── ListStatus.bat			# 运行命令，统计学生提交作业情况
+└── README.md				# 项目指导说明书
+
 ```
 ## 快速指导
 此项目是基于Windows操作系统，简单易用，0门槛。 
 ### 建立工作目录
-下面的文件夹及文件是必须存在的：
+下面的两个批处理文件是必须存在的：
 ```
-├── 01ListofClasses.txt			# 班级名单文件不能为空
-├── 02ListofStudents			# 学生名单目录
-├── 03ListofHomework			# 作业统计目录
-├── 99CollectionofHomeworkforCopy	# 课时目录模板
-├── Copy99.bat				# 复制上面的文件夹的批处理文件
-└── ListStatus.bat			# 统计每个班作业提交情况的批处理文件
+.
+├── CreatDir.bat
+├── ListStatus.bat
+
 ```
-如果你直接下载本项目到本地计算机，你可以安全的删除以下文件和文件夹：
-- default.md				# 所有default.md
-- 02ListofStudents/C5G6.txt		
-- 99CollectionofHomeworkforCopy/*.*	# 目录下所有子目录和文件
-- README.md
-
-### 建立课时目录
-在文件夹`99CollectionofHomeworkforCopy`下，手动创建所需的课时文件夹，文件夹名命名，可参考如下：
+### 建立工作目录
+双击运行`CreatDir.bat`，你会在当前目录下得到如下文件目录结构：
 ```
-./99CollectionofHomeworkforCopy/
-├── Lesson1
-├── Lesson2
-├── Lesson3
-├── Lesson4
-├── Lesson5
-├── Lesson6
-├── Lesson7
-├── Lesson8
-├── Lesson9
-├── MiddleofTerm
-├── EndofTerm
-├── Unit1Summary
-├── Unit2Summary
-├── Unit3Summary
-└── ...
+.
+├── A1班级清单.txt
+├── A2课时清单.txt
+├── A3各班级学生清单
+├── A4各班级作业统计
+├── CreatDir.bat
+├── ListStatus.bat
+└── README.md
 ```
-每个课时文件夹用于存放学生作业文件。
-
-
-双击运行`Copy99.bat`,创建每个班级的存放作业的文件夹。
-
-:heavy_exclamation_mark:温馨提示
-- 此文件夹中的每个子文件夹名如`Lessson1`将作为文件`ListStatus.bat`的第1个参数
-- `ListStatus.bat` 运行时，是依据学生姓名进行查找的，所以作业文件的文件名必须包含该学生的姓名
-
 
 ### 班级名单作成
-手动将各班级名单逐行追加到`01ListofClasses.txt`文件中，并保存。每行由两部分组成：序号-班级名，两者之间用短横线隔开。班级命名形式可参考如下：
-
-```
-1-C5G6
-2-C6G6
-3-C2G5
-...
-```
-上述示列中，每行为一个班级，数字代表老师个人课表上的上课次序;C5G6即指Class 5 Grade 6(六（5）班）;之间用一个短横线隔开。
+手动将各班级名单逐行追加到`A1班级清单.txt`文件中，并保存。
 
 :heavy_exclamation_mark:温馨提示
 此文件中的班级名如`C5G6`将作为文件`ListStatus.bat`的第2个参数
+
+### 课时清单作成
+打开`A2课时清单.txt`文件，按行输入所需课时。
+
+如`Lesson1`,`Lesson2`,`Lesson3`...
+
+:heavy_exclamation_mark:温馨提示
+- 此文件中的每行如`Lessson1`将作为文件`ListStatus.bat`的第1个参数
+- `ListStatus.bat` 运行时，是依据学生姓名进行查找的，所以学生提交的作业文件的文件名必须包含该学生的姓名
+
 ### 学生名单作成
 将每个班的学生名单逐行添加到相应班级的文件中，并保存。
 
-如文件02ListofStudents\C5G6.txt用于存放六（5）班所有学生的名字。
+如文件A3各班级学生清单\C5G6.txt用于存放六（5）班所有学生的名字。
 
 一行一个学生，对于同名学生，建议在名字前加上“大”或“小”以示区分。
 
@@ -171,11 +99,41 @@ John
 ```
 cd E: /d
 ```
-在窗口中运行`ListStatus %1 %2`命令，参数%1即指`99CollectionofHomeworkforCopy/`下的
-子文件夹名;参数%2要与`01ListofClasses.txt`文件中每行的班级名保持一致（如C5G6）。
-如果你要生成六（5）班第1课学生提交作业情况的文件，可以输入如下命令：
+在窗口中运行`ListStatus %1 %2`命令，参数%1即指课时，要与文件`A2课时清单.txt`里的课时名称保持一致。如`Lesson1`
+
+参数%2即指班级，要与`A1班级清单.txt`文件中每行的班级名保持一致（如C5G6）。
+
+例如：
+前提条件：
+
+- `A1班级清单.txt`文件中包含下面一行内容：
+```
+C5G6
+```
+- `A2课时清单.txt`文件中包含下面一行内容：
+```
+Lesson1
+```
+- `A3各班级学生清单\C5G6.txt`文件最好要有学生姓名,如
+```
+张三
+李四
+...
+```
+
+现在，如果你要生成六（5）班第1课学生提交作业情况的文件，可以输入如下命令：
 ```
 ListStatus Lesson1 C5G6
 ```
-按`Enter`确定输入，很快你会得到一个`Lesson1-C5G6.txt`文件。打开`03ListofHomework\Lesson1-C5G6.txt`文件看看吧。
+按`Enter`确定输入，很快你会得到一个`Lesson1_C5G6_统计.txt`文件。进入`A4各班级作业统计`打开`Lesson1_C5G6_统计.txt`文件看看吧。以下是该文件的示例内容：
+```
+班    级	C5G6
+共    计	2人
+课    时	Lesson1
+作成时间	2018-04-16
 
+序号	状态	班级	姓名
+1	未交	C5G6	张三
+
+1	已交	C5G6	李四
+```
