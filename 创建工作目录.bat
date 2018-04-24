@@ -1,8 +1,8 @@
 @ECHO OFF
 rem Author:ITDAMAO
-rem Feature:CreatDir.bat 创建工作目录
+rem Feature:创建工作目录.bat 
 rem Created Time：2018-04-02 13:20
-rem Last Modified Time:2018-04-23 13:50
+rem Last Modified Time:2018-04-24 09:50
 
 
 setlocal EnableDelayedExpansion
@@ -45,12 +45,12 @@ set lessonName=%%j
 mkdir .\!className!\!lessonName!\
 
 rem 在每个课时目录下生成用于统计该课时学生作业情况的bat
-echo @ECHO OFF>.\!className!\!lessonName!\Listme.bat
-echo rem 作者:IT达摩>>.\!className!\!lessonName!\Listme.bat
-echo rem 功能:统计本课时学生交作业的情况>>.\!className!\!lessonName!\Listme.bat
-echo rem 创建时间：2018-04-23 13:43>>.\!className!\!lessonName!\Listme.bat
-echo rem 最后修改时间:%Date:~0,4%-%Date:~5,2%-%Date:~8,2%>>.\!className!\!lessonName!\Listme.bat
-echo cd /d %~dp0 >>.\!className!\!lessonName!\Listme.bat
-echo ListStatus !lessonName! !className! >>.\!className!\!lessonName!\Listme.bat
+echo @ECHO OFF>.\!className!\!lessonName!\统计本课时作业.bat
+echo rem 作者:IT达摩>>.\!className!\!lessonName!\统计本课时作业.bat
+echo rem 功能:统计本课时学生交作业的情况>>.\!className!\!lessonName!\统计本课时作业.bat
+echo rem 创建时间：2018-04-23 13:43>>.\!className!\!lessonName!\统计本课时作业.bat
+echo rem 最后修改时间:%Date:~0,4%-%Date:~5,2%-%Date:~8,2%>>.\!className!\!lessonName!\统计本课时作业.bat
+echo cd /d %~dp0 >>.\!className!\!lessonName!\统计本课时作业.bat
+echo ListStatus !lessonName! !className! >>.\!className!\!lessonName!\统计本课时作业.bat
 )
 )
